@@ -1,0 +1,11 @@
+CREATE TABLE [Role] -- Perfil
+(
+    [Id] INT NOT NULL IDENTITY (1,1),
+    [Name] NVARCHAR(180) NOT NULL,
+    [Slug] NVARCHAR(180) NOT NULL
+
+    CONSTRAINT [PK_Role] PRIMARY KEY([Id]),
+    CONSTRAINT [UQ_Role_Slug] UNIQUE ([Slug]) 
+)
+
+CREATE NONCLUSTERED INDEX [IX_Role_Slug] ON [Role] ([Slug])
