@@ -31,5 +31,7 @@
             Trocar o void para IEnumerable porque o Get retorna um IEnumerable
             Apagar o foreach pois já tem Get e só vamos retornar o IEnumerable dele
 
+    Otimizando o código
+        A melhor maneira de fazer uma conexão é esprando uma conexão 
 
 */

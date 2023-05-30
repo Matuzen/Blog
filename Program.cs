@@ -12,21 +12,22 @@ namespace Blog
         // Aqui a CONNECTION_STRING está disponível para todos os métodos, private para ser acessível somente pelo program
         private static void Main(string[] args)
         {
+            var connection = new SqlConnection (CONNECTION_STRING);
+            connection.Open();
             // ReadUsers();
             // ReadUser();
             // CreatUser();
             // UpdateUser();
             // DeleteUser();
+            connection.Close();
         }
 
-        public static void ReadUsers()
+        public static void ReadUsers(SqlConnection connection)
         {
-            var repository = new UserRepository();
+            var repository = new UserRepository(connection);
             var users = repository.Get();
             foreach (var user in users)
-            {
                 Console.WriteLine(user.Name);
-            }
         }
         public static void ReadUser()
 

@@ -7,13 +7,14 @@ namespace Blog.Repositories
 {
     public class UserRepository
     {
+        private readonly SqlConnection _connection;
+
+        public UserRepository(SqlConnection connection)
+           => _connection = connection;
+        
         public IEnumerable<User> Get()
-        {
-            using (var connection = new SqlConnection(""))
-            {
-                return connection.GetAll<User>();
-            }
-        }
+           => _connection.GetAll<User>();
+        
     }
 
 }
