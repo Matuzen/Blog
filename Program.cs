@@ -14,9 +14,10 @@ namespace Blog
         {
             var connection = new SqlConnection(CONNECTION_STRING);
             connection.Open();
+            CreateUsers(connection);
             ReadUsers(connection);
-            ReadRoles(connection);
-            ReadTags(connection);
+           // ReadRoles(connection);
+           // ReadTags(connection);
             connection.Close();
         }
         public static void ReadUsers(SqlConnection connection)
@@ -25,7 +26,13 @@ namespace Blog
             var items = repository.Get();
 
             foreach (var item in items)
-                Console.WriteLine(item.Name);
+               {
+                 Console.WriteLine(item.Name);
+                 foreach (var role in item.Roles)
+                 {
+                    Console.WriteLine($"- {role.Name}");
+                 }
+               }
         }
         public static void ReadRoles(SqlConnection connection)
         {
@@ -40,6 +47,19 @@ namespace Blog
             var items = repository.Get();
             foreach (var item in items)
                 Console.WriteLine(item.Name);
+        }
+
+        public static void CreateUsers(SqlConnection connection)
+        {
+            var user = new User()
+            {
+                Email = "email@balta.io",
+                Bio = "bio",
+                Image = "imagem",
+                Name = "Name",
+                PasswordHash = "hash",
+                Slug = "slug"
+            };
         }
     }
 }
