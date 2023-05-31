@@ -6,6 +6,9 @@
     Esse metadados estão no Program.cs linha 3 
     Embora essa classe se chame User, o Dapper Contrib vai buscar na tabela o nome da tabela
 
+    No projeto as pastas são 
+        Models (Tabelas do Bando de Dados)
+        Repositories são os métodos
 
     CreatUser() 
         Este método precisa do objeto usuário (fazer uma instanciação do objeto) e entre chaves os dados do usuário
@@ -33,5 +36,8 @@
 
     Otimizando o código
         A melhor maneira de fazer uma conexão é esprando uma conexão 
+
+    Criando uma classe Repositório genérica que funciona para qualquer item para o nosso Models
+
 
 */
